@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────────── */
+    :root {
+      --bg:        #F5F3EE;
+      --ink:       #1A1916;
+      --muted:     #8A8780;
+      --accent:    #C84B31;
+      --rule:      #D8D5CE;
+      --card:      #EDEAE3;
+      --mono:      'DM Mono', monospace;
+      --serif:     'DM Serif Display', Georgia, serif;
+      --max:       720px;
+      --gap:       clamp(2rem, 5vw, 4rem);
+    }
+
+    /* ─── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: clamp(13px, 1.4vw, 15px);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── LAYOUT ──────────────────────────────────────────── */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      padding: 1.1rem 0;
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    #hero {
+      padding: calc(var(--gap) * 2.2) 0 calc(var(--gap) * 1.5);
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.4rem;
+    }
+    .hero-name em { font-style: italic; color: var(--muted); }
+    .hero-bio {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .pill:hover { border-color: var(--accent); color: var(--accent); }
+    .pill svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* ─── SECTION SCAFFOLDING ─────────────────────────────── */
+    section { padding: var(--gap) 0; border-bottom: 1px solid var(--rule); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── EXPERIENCE / CV ─────────────────────────────────── */
+    .timeline { display: flex; flex-direction: column; gap: 2rem; }
+    .entry {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 0 1.5rem;
+    }
+    .entry-date {
+      font-size: 0.74rem;
+      color: var(--muted);
+      padding-top: 0.15rem;
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+    .entry-body {}
+    .entry-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+    .entry-org {
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .entry-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    .tag {
+      padding: 0.2rem 0.6rem;
+      background: var(--card);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      border-radius: 2px;
+    }
+
+    /* ─── PUBLICATIONS ────────────────────────────────────── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .pub {
+      padding: 1.25rem 1.4rem;
+      background: var(--card);
+      border-left: 2px solid var(--accent);
+    }
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .pub-meta {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .pub-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .pub-link:hover { border-color: var(--accent); }
+
+    /* ─── PROJECTS ────────────────────────────────────────── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+    .project-card {
+      background: var(--bg);
+      padding: 1.6rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: background 0.2s;
+    }
+    .project-card:hover { background: var(--card); }
+    .project-num {
+      font-size: 0.65rem;
+      color: var(--rule);
+      letter-spacing: 0.1em;
+    }
+    .project-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+    }
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .project-link {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .project-link:hover { text-decoration: underline; }
+
+    /* ─── BLOG ────────────────────────────────────────────── */
+    .post-list { display: flex; flex-direction: column; }
+    .post-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.2s;
+    }
+    .post-item:first-child { border-top: 1px solid var(--rule); }
+    .post-item:hover .post-title { color: var(--accent); }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .post-date {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── SKILLS ──────────────────────────────────────────── */
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group h3 {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .skill-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .skill-item {
+      font-size: 0.84rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ─── CONTACT / FOOTER ────────────────────────────────── */
+    #contact { border-bottom: none; }
+    .contact-line {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      margin-bottom: 1.5rem;
+    }
+    .contact-line em { font-style: italic; color: var(--muted); }
+    footer {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--ink); }
+
+    /* ─── FADE-IN ON SCROLL ───────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 560px) {
+      .entry { grid-template-columns: 1fr; }
+      .entry-date { margin-bottom: 0.2rem; }
+      .nav-links { gap: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ─────────────────────────────────────────────── -->
+  <nav>
+    <div class="container">
+      <span class="nav-logo">Your Name</span>
+      <ul class="nav-links">
+        <li><a href="#experience">CV</a></li>
+        <li><a href="#publications">Papers</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Machine Learning Engineer</p>
+      <h1 class="hero-name">Your<br/><em>Full Name</em></h1>
+      <p class="hero-bio">
+        I build and ship machine learning systems — from research prototype to production.
+        Currently focused on [your current focus, e.g. large language models / computer vision / RL].
+        Previously at [Company / University].
+      </p>
+      <div class="hero-links">
+        <a class="pill" href="https://github.com/yourusername" target="_blank" rel="noopener">
+          <!-- GitHub icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          GitHub
+        </a>
+        <a class="pill" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">
+          <!-- LinkedIn icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="pill" href="mailto:you@example.com">
+          <!-- Email icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          Email
+        </a>
+        <a class="pill" href="/cv.pdf" target="_blank">
+          <!-- CV icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          CV / Résumé
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ────────────────────────────────────────── -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label reveal">Experience</p>
+      <div class="timeline">
+
+        <div class="entry reveal">
+          <div class="entry-date">2023 — Present</div>
+          <div class="entry-body">
+            <div class="entry-title">Senior ML Engineer</div>
+            <div class="entry-org">Company Name · London, UK</div>
+            <div class="entry-desc">
+              Brief description of your role and key responsibilities. Focus on impact:
+              what did you build, what did you improve, at what scale?
+            </div>
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">Transformers</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry reveal">
+          <div class="entry-date">2021 — 2023</div>
+          <div class="entry-body">
+            <div class="entry-title">ML Engineer</div>
+            <div class="entry-org">Previous Company · Remote</div>
+            <div class="entry-desc">
+              What you built here. Highlight measurable outcomes where possible:
+              latency improvements, model accuracy gains, team size, production traffic.
+            </div>
+            <div class="tags">
+              <span class="tag">TensorFlow</span>
+              <span class="tag">GCP</span>
+              <span class="tag">MLflow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry reveal">
+          <div class="entry-date">2017 — 2021</div>
+          <div class="entry-body">
+            <div class="entry-title">MSc / BSc Computer Science</div>
+            <div class="entry-org">University Name · City</div>
+            <div class="entry-desc">
+              Thesis title or focus area. Any awards, distinctions, or
+              relevant coursework worth calling out.
+            </div>
+            <div class="tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Statistics</span>
+              <span class="tag">Algorithms</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PUBLICATIONS ──────────────────────────────────────── -->
+  <section id="publications">
+    <div class="container">
+      <p class="section-label reveal">Publications</p>
+      <h2 class="reveal">Research &<br/>Writing</h2>
+      <div class="pub-list">
+
+        <div class="pub reveal">
+          <div class="pub-title">Your Paper Title Goes Here</div>
+          <div class="pub-meta">Your Name, Co-Author · NeurIPS 2024 · arXiv:2401.00000</div>
+          <a class="pub-link" href="https://arxiv.org" target="_blank" rel="noopener">Read paper →</a>
+        </div>
+
+        <div class="pub reveal">
+          <div class="pub-title">Another Paper or Preprint Title</div>
+          <div class="pub-meta">Your Name et al. · ICML 2023 · arXiv:2301.00000</div>
+          <a class="pub-link" href="https://arxiv.org" target="_blank" rel="noopener">Read paper →</a>
+        </div>
+
+        <!-- Placeholder when no publications yet -->
+        <!-- <p style="color:var(--muted); font-size:0.85rem;">Publications coming soon.</p> -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ───────────────────────────────────────────── -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label reveal">Open Source &amp; Side Projects</p>
+      <div class="project-grid">
+
+        <a class="project-card reveal" href="https://github.com/yourusername/project-one" target="_blank" rel="noopener">
+          <div class="project-num">01</div>
+          <div class="project-name">Project Name</div>
+          <div class="project-desc">
+            One or two sentences describing what this does and why it's interesting.
+            What problem does it solve?
+          </div>
+          <div class="project-footer">
+            <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span></div>
+            <span class="project-link">GitHub →</span>
+          </div>
+        </a>
+
+        <a class="project-card reveal" href="https://github.com/yourusername/project-two" target="_blank" rel="noopener">
+          <div class="project-num">02</div>
+          <div class="project-name">Another Project</div>
+          <div class="project-desc">
+            What you built, what it does, why you built it.
+            Stars, downloads, or real-world usage if relevant.
+          </div>
+          <div class="project-footer">
+            <div class="tags"><span class="tag">Rust</span><span class="tag">WASM</span></div>
+            <span class="project-link">GitHub →</span>
+          </div>
+        </a>
+
+        <a class="project-card reveal" href="https://github.com/yourusername/project-three" target="_blank" rel="noopener">
+          <div class="project-num">03</div>
+          <div class="project-name">Third Project</div>
+          <div class="project-desc">
+            Keep descriptions crisp. Recruiters and engineers appreciate
+            clarity over hype.
+          </div>
+          <div class="project-footer">
+            <div class="tags"><span class="tag">Go</span><span class="tag">gRPC</span></div>
+            <span class="project-link">GitHub →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BLOG / WRITING ─────────────────────────────────────── -->
+  <section id="writing">
+    <div class="container">
+      <p class="section-label reveal">Writing</p>
+      <h2 class="reveal">Blog &amp; Notes</h2>
+      <div class="post-list">
+
+        <a class="post-item reveal" href="#">
+          <span class="post-title">Post title or essay heading goes here</span>
+          <span class="post-date">Mar 2025</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">What I learned training a model from scratch</span>
+          <span class="post-date">Jan 2025</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">Notes on efficient transformer fine-tuning</span>
+          <span class="post-date">Oct 2024</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">A deep dive into RLHF</span>
+          <span class="post-date">Jul 2024</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ─────────────────────────────────────────────── -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label reveal">Skills &amp; Tools</p>
+      <div class="skill-grid reveal">
+
+        <div class="skill-group">
+          <h3>ML / AI</h3>
+          <div class="skill-items">
+            <span class="skill-item">PyTorch</span>
+            <span class="skill-item">JAX / Flax</span>
+            <span class="skill-item">Transformers (HF)</span>
+            <span class="skill-item">Scikit-learn</span>
+            <span class="skill-item">ONNX / TensorRT</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Engineering</h3>
+          <div class="skill-items">
+            <span class="skill-item">Python</span>
+            <span class="skill-item">C++ / CUDA</span>
+            <span class="skill-item">Go</span>
+            <span class="skill-item">SQL</span>
+            <span class="skill-item">Bash / Linux</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Infrastructure</h3>
+          <div class="skill-items">
+            <span class="skill-item">Kubernetes</span>
+            <span class="skill-item">Docker</span>
+            <span class="skill-item">GCP / AWS</span>
+            <span class="skill-item">MLflow / W&amp;B</span>
+            <span class="skill-item">Terraform</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Research</h3>
+          <div class="skill-items">
+            <span class="skill-item">Experiment design</span>
+            <span class="skill-item">Paper writing</span>
+            <span class="skill-item">Statistical analysis</span>
+            <span class="skill-item">LaTeX</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ────────────────────────────────────────────── -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label reveal">Contact</p>
+      <p class="contact-line reveal">
+        Open to interesting roles<br/><em>and conversations.</em>
+      </p>
+      <div class="hero-links reveal">
+        <a class="pill" href="mailto:you@example.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          you@example.com
+        </a>
+        <a class="pill" href="https://twitter.com/yourusername" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.261 5.632 5.901-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Twitter / X
+        </a>
+        <a class="pill" href="https://scholar.google.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          Google Scholar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <span class="footer-copy">© 2025 Your Name</span>
+      <div class="footer-links">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="/cv.pdf" target="_blank">CV</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── SCROLL REVEAL ──────────────────────────────────────── -->
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
