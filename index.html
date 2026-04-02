@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ramiz Cuthbert — ML Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="img.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     /* ─── TOKENS ──────────────────────────────────────────── */
@@ -87,12 +89,25 @@
       color: var(--accent);
       margin-bottom: 1.2rem;
     }
+    .hero-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 2.5rem;
+      margin-bottom: 1.4rem;
+    }
+    .hero-avatar {
+
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--rule);
+      flex-shrink: 0;
+      margin-top: 0.4rem;
+    }
     .hero-name {
       font-family: var(--serif);
       font-size: clamp(2.8rem, 8vw, 5rem);
       line-height: 1.0;
       letter-spacing: -0.02em;
-      margin-bottom: 1.4rem;
     }
     .hero-name em { font-style: italic; color: var(--muted); }
     .hero-bio {
@@ -362,6 +377,8 @@
       .entry { grid-template-columns: 1fr; }
       .entry-date { margin-bottom: 0.2rem; }
       .nav-links { gap: 1.1rem; }
+      .hero-top { gap: 1.5rem; }
+      .hero-avatar { width: 72px; height: 72px; }
     }
   </style>
 </head>
@@ -383,32 +400,32 @@
 
   <!-- ── HERO ─────────────────────────────────────────────── -->
   <section id="hero">
-    <div class="container">
-      <p class="hero-eyebrow">Machine Learning Engineer</p>
-      <h1 class="hero-name">Ramiz<br/><em>Cuthbert</em></h1>
-      <p class="hero-bio">
-        I build and ship machine learning systems — from research prototype to production.
-        Currently focused on [your current focus, e.g. large language models / computer vision / RL].
-        Previously at the University of Edinburgh.
+    <div class="container hero-container"> <p class="hero-eyebrow">Machine Learning Engineer // Computational Linguist</p>
+      
+      <div class="hero-header-block"> <img class="hero-avatar" src="./profile_pic.JPG" alt="Ramiz Cuthbert" />
+        <h1 class="hero-name">Ramiz<br/><em>Cuthbert</em></h1>
+      </div>
+
+      <p class="hero-bio">        
+      <b>Text • Speech • Video • Image • Graphs</b><br><br>
+I build reliable Machine Learning solutions to automate repetitive tasks. 
+
       </p>
+      
       <div class="hero-links">
-        <a class="pill" href="https://github.com/yourusername" target="_blank" rel="noopener">
-          <!-- GitHub icon -->
+        <a class="pill" href="https://github.com/rjcuthbert" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
           GitHub
         </a>
-        <a class="pill" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">
-          <!-- LinkedIn icon -->
+        <a class="pill" href="https://linkedin.com/in/rcuth" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
         <a class="pill" href="mailto:cuthbert.ramiz@gmail.com">
-          <!-- Email icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
           Email
         </a>
         <a class="pill" href="/cv.pdf" target="_blank">
-          <!-- CV icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           CV
         </a>
@@ -423,13 +440,12 @@
       <div class="timeline">
 
         <div class="entry reveal">
-          <div class="entry-date">2023 — Present</div>
+          <div class="entry-date">2024 — Present</div>
           <div class="entry-body">
-            <div class="entry-title">Senior ML Engineer</div>
-            <div class="entry-org">Company Name · London, UK</div>
+            <div class="entry-title">Machine Learning Engineer</div>
+            <div class="entry-org"> · Full-time</div>
             <div class="entry-desc">
-              Brief description of your role and key responsibilities. Focus on impact:
-              what did you build, what did you improve, at what scale?
+              Led a team to deliver scalable solutions for multimodal problems
             </div>
             <div class="tags">
               <span class="tag">PyTorch</span>
@@ -441,63 +457,86 @@
         </div>
 
         <div class="entry reveal">
-          <div class="entry-date">2021 — 2023</div>
+          <div class="entry-date">2025 — Present</div>
           <div class="entry-body">
-            <div class="entry-title">ML Engineer</div>
-            <div class="entry-org">Previous Company · Remote</div>
+            <div class="entry-title">Solo Developer</div>
+            <div class="entry-org">sVision · Part-time</div>
             <div class="entry-desc">
-              What you built here. Highlight measurable outcomes where possible:
-              latency improvements, model accuracy gains, team size, production traffic.
+            
             </div>
             <div class="tags">
-              <span class="tag">TensorFlow</span>
-              <span class="tag">GCP</span>
-              <span class="tag">MLflow</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">CNN</span>
+              <span class="tag">OCR</span>
+              <span class="tag">LSTM</span>
+              <span class="tag">Transformers</span>
+
             </div>
           </div>
         </div>
 
         <div class="entry reveal">
-          <div class="entry-date">2022 — 2023</div>
+          <div class="entry-date">2025 — 2026</div>
           <div class="entry-body">
-            <div class="entry-title">BSc Speech & Language Processing</div>
+            <div class="entry-title">Solo Developer</div>
+            <div class="entry-org">BoostYourWeb · Part-time</div>
+            <div class="entry-desc">
+            
+            </div>
+            <div class="tags">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="entry reveal">
+          <div class="entry-date">2023 — 2024</div>
+          <div class="entry-body">
+            <div class="entry-title">MSc Speech & Language Processing</div>
             <div class="entry-org">University of Edinburgh · Distinction</div>
             <div class="entry-desc">
-              Artificial Intelligence • Machine Learning • Deep Learning • LLMs •
-              Completed modules in; Machine Learning, Natural Language Processing & Understanding, Speech Synthesis, Automatic Speech Recognition, Reinforcement Learning
-              Dissertation: Improving efficiency of multimodal Transformers through Dynamic Token Pooling.
+            Dissertation: Improving efficiency of multimodal Transformers through Dynamic Token Pooling
             </div>
             <div class="tags">
+              <span class="tag">AI</span>
+              <span class="tag">LLMs</span>
+
               <span class="tag">Machine Learning</span>
-              <span class="tag">Statistics</span>
-              <span class="tag">Algorithms</span>
+              <span class="tag">Natural Language Processing</span>
+              <span class="tag">Speech Synthesis</span>
+              <span class="tag">Automatic Speech Recognition</span>
+              <span class="tag">Reinforcement Learning</span>
+
+
             </div>
           </div>
         </div>
 
-
         <div class="entry reveal">
-          <div class="entry-date">2019 — 2022</div>
+          <div class="entry-date">2020 — 2023</div>
           <div class="entry-body">
             <div class="entry-title">BA Linguistics</div>
             <div class="entry-org">Lancaster University · 1st Class</div>
             <div class="entry-desc">
-              • Computational Linguistics • Forensic Linguistics • Phonetics • Corpus Linguistics •
+            Dissertation: A computational analysis into passive construction usage in academic British English speech & writing
+
             </div>
             <div class="tags">
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Statistics</span>
-              <span class="tag">Algorithms</span>
+              <span class="tag">Computational Linguistics</span>
+              <span class="tag">Forensic Linguistics</span>
+                <span class="tag">Corpus Linguistics</span>
+              <span class="tag">Phonetics & Phonology</span>
+              <span class="tag">Morphology</span>
+              <span class="tag">Syntax</span>
+              <span class="tag">Semantics</span>
+              <span class="tag">Pragmatics</span>
+              <span class="tag">Discourse</span>
             </div>
           </div>
         </div>
 
       </div>
     </div>
-    </div>
-
-    </div>
-
   </section>
 
   <!-- ── PUBLICATIONS ──────────────────────────────────────── -->
@@ -507,20 +546,27 @@
       <h2 class="reveal">Research &<br/>Writing</h2>
       <div class="pub-list">
 
+
         <div class="pub reveal">
-          <div class="pub-title">Your Paper Title Goes Here</div>
-          <div class="pub-meta">Your Name, Co-Author · NeurIPS 2024 · arXiv:2401.00000</div>
+          <div class="pub-title">Analysing Artefacts of Synthetic Speech</div>
+          <div class="pub-meta">Cuthbert, R. · Unpublished</div>
           <a class="pub-link" href="https://arxiv.org" target="_blank" rel="noopener">Read paper →</a>
         </div>
 
         <div class="pub reveal">
-          <div class="pub-title">Another Paper or Preprint Title</div>
-          <div class="pub-meta">Your Name et al. · ICML 2023 · arXiv:2301.00000</div>
-          <a class="pub-link" href="https://arxiv.org" target="_blank" rel="noopener">Read paper →</a>
+          <div class="pub-title">Using speech synthesis to explain automatic speaker recognition: a new
+application of synthetic speech.</div>
+          <div class="pub-meta">Brown, G., Kirchhübel, C., & Cuthbert, R. · INTERSPEECH 2023</div>
+          <a class="pub-link" href="https://www.isca-archive.org/interspeech_2023/brown23_interspeech.html" target="_blank" rel="noopener">Read paper →</a>
         </div>
 
-        <!-- Placeholder when no publications yet -->
-        <!-- <p style="color:var(--muted); font-size:0.85rem;">Publications coming soon.</p> -->
+        <div class="pub reveal">
+          <div class="pub-title">Improving Efficiency of Speech Transformers through Dynamic Token Pooling</div>
+          <div class="pub-meta">Cuthbert, R. · Unpublished</div>
+          <a class="pub-link" href="https://arxiv.org" target="_blank" rel="noopener">Read paper →</a>
+        </div>
+    
+
 
       </div>
     </div>
@@ -529,15 +575,15 @@
   <!-- ── PROJECTS ───────────────────────────────────────────── -->
   <section id="projects">
     <div class="container">
-      <p class="section-label reveal">Open Source &amp; Side Projects</p>
+      <p class="section-label reveal">Open Source Projects</p>
       <div class="project-grid">
 
-        <a class="project-card reveal" href="https://github.com/yourusername/project-one" target="_blank" rel="noopener">
+        <a class="project-card reveal" href="https://github.com/rjcuthbert/project-one" target="_blank" rel="noopener">
           <div class="project-num">01</div>
-          <div class="project-name">Project Name</div>
+          <div class="project-name">VOD Analyser</div>
           <div class="project-desc">
-            One or two sentences describing what this does and why it's interesting.
-            What problem does it solve?
+            Input: YouTube Link for Esports VOD<br>
+            Output: CSV containing match data
           </div>
           <div class="project-footer">
             <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span></div>
@@ -545,12 +591,11 @@
           </div>
         </a>
 
-        <a class="project-card reveal" href="https://github.com/yourusername/project-two" target="_blank" rel="noopener">
+        <a class="project-card reveal" href="https://github.com/rjcuthbert/project-two" target="_blank" rel="noopener">
           <div class="project-num">02</div>
-          <div class="project-name">Another Project</div>
+          <div class="project-name">Wesbite Builder</div>
           <div class="project-desc">
-            What you built, what it does, why you built it.
-            Stars, downloads, or real-world usage if relevant.
+            
           </div>
           <div class="project-footer">
             <div class="tags"><span class="tag">Rust</span><span class="tag">WASM</span></div>
@@ -558,7 +603,7 @@
           </div>
         </a>
 
-        <a class="project-card reveal" href="https://github.com/yourusername/project-three" target="_blank" rel="noopener">
+        <a class="project-card reveal" href="https://github.com/rjcuthbert/project-three" target="_blank" rel="noopener">
           <div class="project-num">03</div>
           <div class="project-name">Third Project</div>
           <div class="project-desc">
@@ -583,19 +628,64 @@
       <div class="post-list">
 
         <a class="post-item reveal" href="#">
-          <span class="post-title">Post title or essay heading goes here</span>
-          <span class="post-date">Mar 2025</span>
+          <span class="post-title">BERT for Distinguishing Authorship: a case for Validation over Explainability</span>
+          <span class="post-tag tag-nlp">NLP</span>
+          <span class="post-date">Apr 2021</span>
         </a>
         <a class="post-item reveal" href="#">
-          <span class="post-title">What I learned training a model from scratch</span>
-          <span class="post-date">Jan 2025</span>
+          <span class="post-title">Analysing Artefacts of Synthetic Speech</span>
+          <span class="post-tag tag-nlp">NLP</span>
+          <span class="post-date">Jul 2022</span>
         </a>
         <a class="post-item reveal" href="#">
-          <span class="post-title">Notes on efficient transformer fine-tuning</span>
+          <span class="post-title">Improving Efficiency of Speech Transformers through Dynamic Token Pooling</span>
+          <span class="post-tag tag-transformers">Transformers</span>
+          <span class="post-date">Sept 2023</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">Automatically Analysing YouTube VODs</span>
+          <span class="post-tag tag-video">Video</span>
+          <span class="post-date">Mar 2024</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">Agentic Systems for Video Generation</span>
+          <span class="post-tag tag-agentic">Agentic</span>
           <span class="post-date">Oct 2024</span>
         </a>
         <a class="post-item reveal" href="#">
-          <span class="post-title">A deep dive into RLHF</span>
+          <span class="post-title">Optimising Video Content Features</span>
+          <span class="post-tag tag-rl">RL</span>
+          <span class="post-date">Oct 2024</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">Effective approaches to Language Learning</span>
+          <span class="post-tag tag-other">Other</span>
+          <span class="post-date">Jul 2024</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">Explainable approaches to Accent Improvement</span>
+          <span class="post-tag tag-other">Other</span>
+          <span class="post-date">Jul 2024</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">Scalable Website Generation</span>
+          <span class="post-tag tag-other">Other</span>
+          <span class="post-date">Jul 2024</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">Building Habits and Reaching Goals</span>
+          <span class="post-tag tag-other">Other</span>
+          <span class="post-date">Jul 2024</span>
+        </a>
+        <a class="post-item reveal" href="#">
+          <span class="post-title">My Stint as an Esports Coach</span>
+          <span class="post-tag tag-other">Other</span>
+          <span class="post-date">Jul 2024</span>
+        </a>
+
+        <a class="post-item reveal" href="#">
+          <span class="post-title">Road to being a runner</span>
+          <span class="post-tag tag-other">Other</span>
           <span class="post-date">Jul 2024</span>
         </a>
 
@@ -614,20 +704,24 @@
           <div class="skill-items">
             <span class="skill-item">PyTorch</span>
             <span class="skill-item">JAX / Flax</span>
-            <span class="skill-item">Transformers (HF)</span>
-            <span class="skill-item">Scikit-learn</span>
-            <span class="skill-item">ONNX / TensorRT</span>
+            <span class="skill-item">HuggingFace</span>
+            <span class="skill-item">sklearn</span>
+            <span class="skill-item">OpenCV</span>
+            <span class="skill-item">NLTK</span>
+
           </div>
         </div>
 
         <div class="skill-group">
-          <h3>Engineering</h3>
+          <h3>Programming Languages</h3>
           <div class="skill-items">
-            <span class="skill-item">Python</span>
+            <span class="skill-item">Python (Expert)</span>
             <span class="skill-item">C++ / CUDA</span>
             <span class="skill-item">Go</span>
             <span class="skill-item">SQL</span>
             <span class="skill-item">Bash / Linux</span>
+            <span class="skill-item">Javascript</span>
+
           </div>
         </div>
 
@@ -639,6 +733,9 @@
             <span class="skill-item">GCP / AWS</span>
             <span class="skill-item">MLflow / W&amp;B</span>
             <span class="skill-item">Terraform</span>
+            <span class="skill-item">Git</span>
+            <span class="skill-item">LaTeX</span>
+
           </div>
         </div>
 
@@ -648,7 +745,19 @@
             <span class="skill-item">Experiment design</span>
             <span class="skill-item">Paper writing</span>
             <span class="skill-item">Statistical analysis</span>
-            <span class="skill-item">LaTeX</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Foreign Languages</h3>
+          <div class="skill-items">
+            <span class="skill-item">English • Native</span>
+            <span class="skill-item">French • Working</span>
+            <span class="skill-item">Russian • Working</span>
+            <span class="skill-item">Latin • crazy right?</span>
+            <span class="skill-item">Arabic • Basic</span>
+
+
           </div>
         </div>
 
@@ -668,7 +777,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
           cuthbert.ramiz@gmail.com
         </a>
-        <a class="pill" href="https://twitter.com/yourusername" target="_blank" rel="noopener">
+        <a class="pill" href="https://twitter.com/rcuth_r6" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.261 5.632 5.901-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           Twitter / X
         </a>
@@ -685,8 +794,8 @@
     <div class="container">
       <span class="footer-copy">© 2026 Ramiz Cuthbert</span>
       <div class="footer-links">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/rjcuthbert" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/rcuth" target="_blank" rel="noopener">LinkedIn</a>
         <a href="/cv.pdf" target="_blank">CV</a>
       </div>
     </div>
