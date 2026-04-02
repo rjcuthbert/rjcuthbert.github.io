@@ -1,0 +1,166 @@
+/* --- New/Updated CSS --- */
+
+/* Ensures everything stays within the layout width */
+.hero-container {
+  max-width: 800px; /* or whatever width you prefer */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Base styles for the section */
+#hero {
+  padding: 60px 0;
+  text-align: center; /* Center-aligns the bio and links on smaller screens */
+}
+
+/* Wrapper to handle layout of picture and name */
+.hero-header-block {
+  display: flex;
+  flex-direction: column; /* Stack vertically on mobile */
+  align-items: center;    /* Center horizontally */
+  gap: 20px;              /* Space between pic and name */
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* THE AVATAR SIZE INCREASE */
+.hero-avatar {
+  /* This makes it much bigger. Set both width and height to the same large value */
+  width: 200px; 
+  height: 200px;
+  
+  /* Critical for keeping the circle shape if the image isn't perfectly square */
+  object-fit: cover; 
+  border-radius: 50%; /* Make it circular */
+  
+  /* Ensure it doesn't get *too* large on small screens */
+  max-width: 80vw;
+  max-height: 80vw;
+  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional style touch */
+}
+
+/* Adjusting the Name for centering */
+.hero-name {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Media Query: Changes to horizontal layout on larger screens */
+@media (min-width: 768px) {
+  #hero {
+    text-align: left; /* Switch back to left align on desktop */
+  }
+
+  .hero-header-block {
+    flex-direction: row; /* Picture and name side-by-side */
+    justify-content: flex-start; /* Align left */
+    gap: 30px; /* Larger gap on desktop */
+    align-items: center;
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .tag-nlp {
+    background-color: rgba(25, 118, 210, 0.15); /* Darker, transparent blue */
+    color: #90caf9; /* Lighter text */
+    border: 1px solid rgba(25, 118, 210, 0.3);
+  }
+  /* Repeat for other colors... */
+}
+
+/* 1. The Container */
+.post-item {
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: flex-start;
+  gap: 15px; /* Space between the elements */
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee; /* Optional separator */
+}
+
+/* 2. The Title */
+.post-title {
+  flex-grow: 1; /* This pushes the tag and date to the right */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds "..." if the title is too long */
+}
+
+/* 3. The Tag (Pale Styles) */
+.post-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 4px;
+  white-space: nowrap; /* Prevents tag from breaking into two lines */
+}
+
+/* 4. The Date */
+.post-date {
+  font-size: 0.85rem;
+  color: #888;
+  white-space: nowrap;
+  min-width: 70px; /* Ensures dates don't jump around */
+  text-align: right;
+}
+
+/* Individual Pale Colors *//* Base Tag Style */
+.post-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* NLP - Pale Blue */
+.tag-nlp {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #bbdefb;
+}
+
+/* TTS (Text-to-Speech) - Pale Purple */
+.tag-tts {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  border: 1px solid #e1bee7;
+}
+
+/* Transformers - Pale Yellow/Gold */
+.tag-transformers {
+  background-color: #fffde7;
+  color: #fbc02d;
+  border: 1px solid #fff9c4;
+}
+
+/* Video - Pale Red/Pink */
+.tag-video {
+  background-color: #fce4ec;
+  color: #c2185b;
+  border: 1px solid #f8bbd0;
+}
+
+/* Agentic - Pale Teal */
+.tag-agentic {
+  background-color: #e0f2f1;
+  color: #00796b;
+  border: 1px solid #b2dfdb;
+}
+
+/* RL (Reinforcement Learning) - Pale Green */
+.tag-rl {
+  background-color: #e8f5e9;
+  color: #388e3c;
+  border: 1px solid #c8e6c9;
+}
+
+/* Other - Pale Grey */
+.tag-other {
+  background-color: #f5f5f5;
+  color: #616161;
+  border: 1px solid #e0e0e0;
+}
